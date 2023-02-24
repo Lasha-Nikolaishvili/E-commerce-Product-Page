@@ -14,6 +14,54 @@
     --black: hsl(0, 0%, 0%); /* with 75% opacity for lightbox background */
 }
 
+.col-orange {
+    color: var(--orange);
+}
+
+.col-pale-orange {
+    color: var(--pale-orange);
+}
+
+.col-very-dark-blue {
+    color: var(--very-dark-blue);
+}
+
+.col-dark-grayish-blue {
+    color: var(--dark-grayish-blue);
+}
+
+.col-grayish-blue {
+    color: var(--grayish-blue);
+}
+
+.col-light-grayish-blue {
+    color: var(--light-grayish-blue);
+}
+
+.col-white {
+    color: var(--white);
+}
+
+.col-black {
+    color: var(--black);
+}
+
+.bg-orange {
+    background-color: var(--orange);
+}
+
+.bg-pale-orange {
+    background-color: var(--pale-orange);
+}
+
+.bg-light-grayish-blue{
+    background-color: var(--light-grayish-blue);
+}
+
+.bg-grayish-blue{
+    background-color: var(--grayish-blue);
+}
+
 body {
     font-family: 'Kumbh Sans', sans-serif;
 }
@@ -22,6 +70,45 @@ body {
     color: var(--black);
     border-bottom: 2px solid var(--orange);
     margin-bottom: -2px;
+}
+
+main {
+    position: relative;
+}
+
+.cart-popup {
+    width: 20em;
+    min-height: 12em;
+    display: none;
+    position: absolute;
+    top: 4.5em;
+    right: .5em;
+    z-index: 1;
+}
+
+.cart-popup.active { display: block; }
+.empty-msg.inactive { display: none ;}
+
+.cart-body-content {
+    position: relative;
+}
+
+.popup-product-img {
+    width: 3em;
+}
+
+.del-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 2;
+    transition: 100ms ease-in;
+}
+
+.del-btn:hover use {
+    fill: var(--black);
 }
 
 .cart-icon svg {
@@ -63,6 +150,41 @@ body {
 
 .offcanvas {
     display: none;
+}
+
+.main-img {
+    height: 75%;
+    background-image: url(./images/image-product-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bot-img {
+    height: 10em;
+    width: 22%;
+    background-image: url(./images/image-product-2-thumbnail.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.dec-span,.inc-span {
+    cursor: pointer;
+    transition: 100ms ease-in;
+}
+
+.org-btn {
+    padding: .8em 0;
+}
+
+.org-btn  svg path {
+    fill: var(--white);
+}
+
+.org-btn:hover,.org-btn:active,.org-btn:focus-visible {
+    background-color: hsl(26, 100%, 65%)!important;
+    color: var(--white) !important;
 }
 
 .attribution { font-size: 11px; text-align: center; }
