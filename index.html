@@ -85,7 +85,7 @@
 				<!-- <span class="col-dark-grayish-blue mt-5 empty-msg">Your cart is empty.</span> -->
 				<div class="d-flex flex-grow-1 flex-column">
 					<div class="d-flex">
-						<img class="popup-product-img rounded-1" src="./images/image-product-1-thumbnail.jpg" alt="">
+						<img class="img-fluid popup-product-img rounded-1" src="./images/image-product-1-thumbnail.jpg" alt="">
 						<div class="d-flex flex-column flex-grow-1 cart-body-content px-2">
 							<div>Fall Limited Edition Sneakers</div>
 							<div>$125.00 <small>x</small> <span class="checkout-qty">3</span> <span class="total-prc fw-bold">$375.00</span></div>
@@ -99,15 +99,35 @@
 	</header>
 	<main class="container-md">
 		<div class="row mt-5">
-			<section class="col-md-6 bg-primary">
-				<div class="main-img rounded-4">
-					
+			<section class="col-md-6 sec-left">
+					<img class="img-fluid rounded-4 main-img"  data-bs-toggle="modal" data-bs-target="#productModal" src="./images/image-product-1.jpg" alt="Large Sneaker image.">
+				<div class="row-cols-4 d-flex justify-content-between mt-4">
+					<div class="bot-img-cont rounded-4"><img src="./images/image-product-1-thumbnail.jpg" alt="Sneaker image 1." class="col img-fluid rounded-4 bot-img selected"></div>
+					<div class="bot-img-cont rounded-4"><img src="./images/image-product-2-thumbnail.jpg" alt="Sneaker image 2." class="col img-fluid rounded-4 bot-img"></div>
+					<div class="bot-img-cont rounded-4"><img src="./images/image-product-3-thumbnail.jpg" alt="Sneaker image 3." class="col img-fluid rounded-4 bot-img"></div>
+					<div class="bot-img-cont rounded-4"><img src="./images/image-product-4-thumbnail.jpg" alt="Sneaker image 4." class="col img-fluid rounded-4 bot-img"></div>
 				</div>
-				<div class="row">
-					<div class="col bot-img"></div>
-					<div class="col bot-img"></div>
-					<div class="col bot-img"></div>
-					<div class="col bot-img"></div>
+				<div class="modal" id="productModal" tabindex="-1">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content bg-transparent border-0">
+								<div class="modal-header border-0">
+									<button type="button" class="btn-close col-orange" data-bs-dismiss="modal"></button>
+								</div>
+								<div class="modal-body">
+									<div class="modal-main-img-cont">
+										<div class="prev-cont bg-white rounded-5 d-flex justify-content-center align-items-center"><svg class="prev" width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></div>
+										<img class="img-fluid rounded-4 modal-main-img" src="./images/image-product-1.jpg" alt="Large Sneaker image.">
+										<div class="next-cont bg-white rounded-5 d-flex justify-content-center align-items-center"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></div>
+									</div>
+									<div class="row-cols-4 d-flex justify-content-between mt-4">
+										<div class="modal-bot-img-cont rounded-4 bg-white"><img src="./images/image-product-1-thumbnail.jpg" alt="Sneaker image 1." class="col img-fluid rounded-4 modal-bot-img selected"></div>
+										<div class="modal-bot-img-cont rounded-4 bg-white"><img src="./images/image-product-2-thumbnail.jpg" alt="Sneaker image 2." class="col img-fluid rounded-4 modal-bot-img"></div>
+										<div class="modal-bot-img-cont rounded-4 bg-white"><img src="./images/image-product-3-thumbnail.jpg" alt="Sneaker image 3." class="col img-fluid rounded-4 modal-bot-img"></div>
+										<div class="modal-bot-img-cont rounded-4 bg-white"><img src="./images/image-product-4-thumbnail.jpg" alt="Sneaker image 4." class="col img-fluid rounded-4 modal-bot-img"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 				</div>
 			</section>
 			<section class="col-md-6 p-5 d-flex flex-column justify-content-between">
@@ -123,7 +143,7 @@
 					<span class="original-price col-grayish-blue text-decoration-line-through fw-bold">$250.00</span>
 				</div>
 				<div class="d-flex justify-content-between align-items-stretch mt-2">
-					<div class="quantity-counter flex-grow-1 d-flex justify-content-between align-items-center bg-grayish-blue rounded-3 me-3">
+					<div class="quantity-counter flex-grow-1 d-flex justify-content-between align-items-center bg-light-grayish-blue rounded-3 me-3">
 						<span class="dec-span align-self-stretch px-3 d-flex justify-content-center align-items-center"><svg width="12" height="4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" id="a"/></defs><use class="dec-use" fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"/></svg></span>
 						<span class="quantity px-3 fw-bold">0</span>
 						<span class="inc-span align-self-stretch px-3 d-flex justify-content-center align-items-center"><svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" id="b"/></defs><use class="inc-use" fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"/></svg></span>

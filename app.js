@@ -28,7 +28,6 @@ const quantity = document.querySelector('.quantity');
 // Decrement span control
 const decSpan = document.querySelector('.dec-span');
 const decUse = document.querySelector('.dec-use');
-// let decSpanIsClicked = false;
 
 
 decSpan.addEventListener('mouseenter', ()=> {
@@ -36,42 +35,85 @@ decSpan.addEventListener('mouseenter', ()=> {
 })
 
 decSpan.addEventListener('mouseleave', ()=> {
-    // (decSpanIsClicked) ? decUse.style.fill = 'hsl(26, 100%, 65%)' : decUse.style.fill = '';
     decUse.style.fill = '';
 })
 
 decSpan.addEventListener('click', ()=> {
     if(parseInt(quantity.innerHTML) > 0) quantity.innerHTML = parseInt(quantity.innerHTML) - 1;
-    // if (decSpanIsClicked) {
-    //     decUse.style.fill = '';
-    //     decSpanIsClicked = false; 
-    // } else {
-    //     decUse.style.fill = 'hsl(26, 100%, 65%)';
-    //     decSpanIsClicked = true;
-    // }
 })
 
 // Increment span control
 const incSpan = document.querySelector('.inc-span');
 const incUse = document.querySelector('.inc-use');
-// let incSpanIsClicked = false;
 
 incSpan.addEventListener('mouseenter', ()=> {
     incUse.style.fill = 'hsl(26, 100%, 65%)';
 })
 
 incSpan.addEventListener('mouseleave', ()=> {
-    // (incSpanIsClicked) ? incUse.style.fill = 'hsl(26, 100%, 65%)' : incUse.style.fill = '';
     incUse.style.fill = '';
 })
 
 incSpan.addEventListener('click', ()=> {
     quantity.innerHTML = parseInt(quantity.innerHTML) + 1;
-    // if (incSpanIsClicked) {
-    //     incUse.style.fill = '';
-    //     incSpanIsClicked = false;
-    // } else {
-    //     incUse.style.fill = 'hsl(26, 100%, 65%)';
-    //     incSpanIsClicked = true;
-    // }
 })
+
+// Product image control
+const mainImg = document.querySelector('.main-img');
+const botImgs = document.querySelectorAll('.bot-img');
+botImgs[0].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
+
+for(let i=0; i<botImgs.length; i++) {
+    botImgs[i].addEventListener('click', () => {
+        selectImg(i);
+    })
+}
+
+function selectImg(index) {
+    mainImg.src = `./images/image-product-${index+1}.jpg`;
+    for(let j=0; j<botImgs.length; j++) {
+        if(botImgs[j].classList.contains('selected')) botImgs[j].classList.remove('selected');
+        botImgs[j].parentElement.style.border = '';
+    }
+    botImgs[index].classList.add('selected');
+    botImgs[index].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
+}
+
+// Modal product image control
+const modalMainImg = document.querySelector('.modal-main-img');
+const modalBotImgs = document.querySelectorAll('.modal-bot-img');
+modalBotImgs[0].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
+let selectedImgIndex = 0;
+
+for(let i=0; i<modalBotImgs.length; i++) {
+    modalBotImgs[i].addEventListener('click', () => {
+        selectModalImg(i);
+    })
+}
+
+// next/prev btn contol
+const prevBtn = document.querySelector('.prev-cont');
+const nextBtn = document.querySelector('.next-cont');
+
+prevBtn.addEventListener('click', () => {
+    if(selectedImgIndex <= 0) selectedImgIndex = modalBotImgs.length;
+    selectedImgIndex--;
+    selectModalImg(selectedImgIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+    selectedImgIndex++;
+    if(selectedImgIndex >= modalBotImgs.length) selectedImgIndex = 0;
+    selectModalImg(selectedImgIndex);
+});
+
+function selectModalImg(index) {
+    modalMainImg.src = `./images/image-product-${index+1}.jpg`;
+    for(let j=0; j<modalBotImgs.length; j++) {
+        if(modalBotImgs[j].classList.contains('selected')) modalBotImgs[j].classList.remove('selected');
+        modalBotImgs[j].parentElement.style.border = '';
+    }
+    modalBotImgs[index].classList.add('selected');
+    modalBotImgs[index].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
+    selectedImgIndex = index;
+}
