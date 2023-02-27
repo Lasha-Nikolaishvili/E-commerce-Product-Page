@@ -12,6 +12,7 @@ cartIcon.addEventListener('mouseleave', ()=> {
 })
 
 cartIcon.addEventListener('click', ()=> {
+    cartPopup.classList.toggle('d-none');
     if (cartIconIsClicked) {
         cartIconPath.style.fill = 'hsl(219, 9%, 45%)';
         cartIconIsClicked = false; 
@@ -57,6 +58,35 @@ incSpan.addEventListener('mouseleave', ()=> {
 incSpan.addEventListener('click', ()=> {
     quantity.innerHTML = parseInt(quantity.innerHTML) + 1;
 })
+
+// Cart button control
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+const checkoutQty =  document.querySelector('.checkout-qty');
+const totalPrc =  document.querySelector('.total-prc');
+const selectedProducts = document.querySelector('.selected-products');
+const emptyMsg = document.querySelector('.empty-msg');
+const qtyOnCartIcon = document.querySelector('.qty-on-cart-icon');
+addToCartBtn.addEventListener('click', () => {
+    checkoutQty.innerHTML = quantity.innerHTML;
+    qtyOnCartIcon.innerHTML = quantity.innerHTML;
+    totalPrc.innerHTML = `$${125 * parseInt(checkoutQty.innerHTML)}.00`;
+    selectedProducts.classList.remove('d-none');
+    emptyMsg.classList.add('d-none');
+});
+
+// Checkout/delete button control
+const checkoutBtn = document.querySelector('.checkout-btn');
+const deleteBtn = document.querySelector('.del-btn');
+deleteBtn.addEventListener('click', completeOrder);
+checkoutBtn.addEventListener('click', completeOrder);
+
+function completeOrder() {
+    quantity.innerHTML = 0;
+    checkoutQty.innerHTML = 0;
+    qtyOnCartIcon.innerHTML = '';
+    emptyMsg.classList.remove('d-none');
+    selectedProducts.classList.add('d-none');
+}
 
 // Product image control
 const mainImg = document.querySelector('.main-img');

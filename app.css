@@ -251,3 +251,10 @@ main {
         width: 15em !important;
     }
 }
+
+@media (max-width: 300px) {
+    .avatar-img-cont {
+        width: 30px;
+        height: 30px;
+    }
+}
