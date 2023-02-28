@@ -64,6 +64,7 @@
 
 body {
     font-family: 'Kumbh Sans', sans-serif;
+    min-height: 100vh;
 }
 
 .nav-a:hover,.nav-a:focus,.nav-a:focus-visible {
@@ -74,6 +75,7 @@ body {
 
 main {
     position: relative;
+    min-height: 100vh;
 }
 
 .cart-popup {
@@ -153,7 +155,7 @@ main {
 }
 
 .sec-left {
-    max-width: 33em;
+    max-width: 25em;
 }
 
 .main-img {
@@ -279,6 +281,13 @@ main {
     }
 }
 
+
+@media (max-width: 768px) {
+    .sec-left {
+        max-width: 33em;
+    }
+}
+
 @media (max-width: 528px) {
     .main-img {
         border-radius: 0 !important;
@@ -293,5 +302,11 @@ main {
     .avatar-img-cont {
         width: 30px;
         height: 30px;
+    }
+}
+
+@media (min-width: 2000px) {
+    body {
+        font-size: 30px;
     }
 }
