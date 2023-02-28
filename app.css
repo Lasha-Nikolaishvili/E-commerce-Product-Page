@@ -279,7 +279,7 @@ main {
     }
 }
 
-@media (max-width: 545px) {
+@media (max-width: 528px) {
     .main-img {
         border-radius: 0 !important;
     }

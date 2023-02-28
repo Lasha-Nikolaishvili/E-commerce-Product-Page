@@ -67,11 +67,13 @@ const selectedProducts = document.querySelector('.selected-products');
 const emptyMsg = document.querySelector('.empty-msg');
 const qtyOnCartIcon = document.querySelector('.qty-on-cart-icon');
 addToCartBtn.addEventListener('click', () => {
-    checkoutQty.innerHTML = quantity.innerHTML;
-    qtyOnCartIcon.innerHTML = quantity.innerHTML;
-    totalPrc.innerHTML = `$${125 * parseInt(checkoutQty.innerHTML)}.00`;
-    selectedProducts.classList.remove('d-none');
-    emptyMsg.classList.add('d-none');
+    if(parseInt(quantity.innerHTML) != 0) { 
+        checkoutQty.innerHTML = quantity.innerHTML;
+        qtyOnCartIcon.innerHTML = quantity.innerHTML;
+        totalPrc.innerHTML = `$${125 * parseInt(checkoutQty.innerHTML)}.00`;
+        selectedProducts.classList.remove('d-none');
+        emptyMsg.classList.add('d-none');
+    }
 });
 
 // Checkout/delete button control
