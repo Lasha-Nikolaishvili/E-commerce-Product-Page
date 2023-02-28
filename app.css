@@ -153,11 +153,14 @@ main {
 }
 
 .sec-left {
-    width: 25em;
+    max-width: 33em;
 }
 
 .main-img {
     cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .bot-img-cont {
@@ -206,11 +209,21 @@ main {
     cursor: pointer;
 }
 
-.prev-cont svg, .next-cont svg{
+.prev-cont-hidden {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translate(0,-50%);
+    cursor: pointer;
+}
+
+.prev-cont svg, .next-cont svg, .next-cont-hidden svg, .prev-cont-hidden svg{
     transform: scale(.8);
 }
 
-.prev-cont:hover svg path, .next-cont:hover svg path{
+.prev-cont:hover svg path, .next-cont:hover svg path ,.next-cont-hidden:hover svg path,.prev-cont-hidden:hover svg path{
     stroke: var(--orange);
 }
 
@@ -224,9 +237,23 @@ main {
     cursor: pointer;
 }
 
+.next-cont-hidden {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translate(0,-50%);
+    cursor: pointer;
+}
+
 .dec-span,.inc-span {
     cursor: pointer;
     transition: 100ms ease-in;
+}
+
+.quantity-counter {
+    padding: .8em 0;
 }
 
 .org-btn {
@@ -249,6 +276,16 @@ main {
     .offcanvas {
         display: block;
         width: 15em !important;
+    }
+}
+
+@media (max-width: 545px) {
+    .main-img {
+        border-radius: 0 !important;
+    }
+
+    .prev-cont-hidden, .next-cont-hidden {
+        display: flex !important;
     }
 }
 

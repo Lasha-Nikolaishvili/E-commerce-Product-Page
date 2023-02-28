@@ -93,6 +93,22 @@ const mainImg = document.querySelector('.main-img');
 const botImgs = document.querySelectorAll('.bot-img');
 botImgs[0].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
 
+const prevBtnHidden = document.querySelector('.prev-cont-hidden');
+const nextBtnHidden = document.querySelector('.next-cont-hidden');
+selectedImgIndex = 0;
+
+prevBtnHidden.addEventListener('click', () => {
+    if(selectedImgIndex <= 0) selectedImgIndex = modalBotImgs.length;
+    selectedImgIndex--;
+    selectImg(selectedImgIndex);
+});
+
+nextBtnHidden.addEventListener('click', () => {
+    selectedImgIndex++;
+    if(selectedImgIndex >= modalBotImgs.length) selectedImgIndex = 0;
+    selectImg(selectedImgIndex);
+});
+
 for(let i=0; i<botImgs.length; i++) {
     botImgs[i].addEventListener('click', () => {
         selectImg(i);
@@ -107,13 +123,14 @@ function selectImg(index) {
     }
     botImgs[index].classList.add('selected');
     botImgs[index].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
+    selectedImgIndex = index;
 }
 
 // Modal product image control
 const modalMainImg = document.querySelector('.modal-main-img');
 const modalBotImgs = document.querySelectorAll('.modal-bot-img');
 modalBotImgs[0].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
-let selectedImgIndex = 0;
+let selectedModalImgIndex = 0;
 
 for(let i=0; i<modalBotImgs.length; i++) {
     modalBotImgs[i].addEventListener('click', () => {
@@ -126,15 +143,15 @@ const prevBtn = document.querySelector('.prev-cont');
 const nextBtn = document.querySelector('.next-cont');
 
 prevBtn.addEventListener('click', () => {
-    if(selectedImgIndex <= 0) selectedImgIndex = modalBotImgs.length;
-    selectedImgIndex--;
-    selectModalImg(selectedImgIndex);
+    if(selectedModalImgIndex <= 0) selectedModalImgIndex = modalBotImgs.length;
+    selectedModalImgIndex--;
+    selectModalImg(selectedModalImgIndex);
 });
 
 nextBtn.addEventListener('click', () => {
-    selectedImgIndex++;
-    if(selectedImgIndex >= modalBotImgs.length) selectedImgIndex = 0;
-    selectModalImg(selectedImgIndex);
+    selectedModalImgIndex++;
+    if(selectedModalImgIndex >= modalBotImgs.length) selectedModalImgIndex = 0;
+    selectModalImg(selectedModalImgIndex);
 });
 
 function selectModalImg(index) {
@@ -145,5 +162,5 @@ function selectModalImg(index) {
     }
     modalBotImgs[index].classList.add('selected');
     modalBotImgs[index].parentElement.style.border = '2px solid hsl(26, 100%, 55%)';
-    selectedImgIndex = index;
+    selectedModalImgIndex = index;
 }
