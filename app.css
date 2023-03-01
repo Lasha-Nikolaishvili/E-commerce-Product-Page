@@ -171,7 +171,6 @@ main {
 }
 
 .bot-img.selected {
-    /* border: 2px solid var(--orange); */
     transform: scale(1.04);
     opacity: .3;
 }
@@ -280,7 +279,6 @@ main {
         width: 15em !important;
     }
 }
-
 
 @media (max-width: 768px) {
     .sec-left {
